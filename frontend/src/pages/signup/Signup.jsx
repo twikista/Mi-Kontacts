@@ -1,6 +1,9 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
 function Signup() {
+  const [user, setUser] = useState("");
+
   const {
     register,
     handleSubmit,
@@ -9,7 +12,7 @@ function Signup() {
   } = useForm();
 
   const signupUser = async (signupDetails) => {
-    const response = await fetch("/api/users/signup", {
+    const response = await fetch("/api/user/signup", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(signupDetails),
@@ -18,15 +21,36 @@ function Signup() {
     return user;
   };
 
-  const singinMutation = useMutation({});
+  const { mutate: createUser } = useMutation({
+    mutationFn: signupUser,
+    onSuccess: (data) => {
+      setUser(data);
+      console.log(user);
+    },
+  });
 
   const onSubmit = (data) => {
-    console.log(data);
+    const signupDetails = { ...data };
+    createUser(signupDetails);
     reset();
   };
   return (
     <>
       <form onSubmit={handleSubmit(onSubmit)}>
+        <div>
+          <input
+            {...register("firstName")}
+            type="text"
+            placeholder="first name"
+          />
+        </div>
+        <div>
+          <input
+            {...register("lastName")}
+            type="text"
+            placeholder="last name"
+          />
+        </div>
         <div>
           <input {...register("email")} type="text" placeholder="email" />
         </div>
@@ -35,6 +59,13 @@ function Signup() {
             {...register("password")}
             type="password"
             placeholder="password"
+          />
+        </div>
+        <div>
+          <input
+            {...register("password2")}
+            type="password"
+            placeholder="confirm password"
           />
         </div>
         <button type="submit">login</button>
