@@ -12,18 +12,22 @@ function Login() {
   } = useForm();
 
   const getContacts = async () => {
-    const response = await fetch("/api/contacts/");
+    const response = await fetch("http://localhost:4000/api/contacts/", {
+      headers: {
+        Authorization: `Bearer ${user.token}`,
+      },
+    });
     const contacts = await response.json();
     return contacts;
   };
 
   const login = async (loginCredentials) => {
-    const response = await fetch("/api/user/login/", {
+    const response = await fetch("http://localhost:4000/api/user/login/", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(loginCredentials),
     });
-    const user = response.json();
+    const user = await response.json();
     return user;
   };
 
@@ -31,6 +35,7 @@ function Login() {
     mutationFn: login,
     onSuccess: (data) => {
       setUser(data);
+      console.log(data);
       console.log(user);
     },
     onError: (error) => console.log(error),
@@ -49,6 +54,7 @@ function Login() {
   const onSubmit = (data) => {
     const user = { ...data };
     loginUser(user);
+    // console.log(user);
     reset();
   };
 
