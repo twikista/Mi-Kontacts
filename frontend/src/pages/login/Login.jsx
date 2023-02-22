@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useLogin } from "../../hooks/useLogin";
 import { useMutation, useQuery } from "@tanstack/react-query";
 function Login() {
-  const [user, setUser] = useState("");
+  // const [user, setUser] = useState("");
   const [contacts, setContacts] = useState("");
+  const { loginUser } = useLogin();
   const {
     register,
     handleSubmit,
-    // formState: { errors },
+    formState: { errors },
     reset,
   } = useForm();
 
@@ -21,25 +23,25 @@ function Login() {
     return contacts;
   };
 
-  const login = async (loginCredentials) => {
-    const response = await fetch("http://localhost:4000/api/user/login/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(loginCredentials),
-    });
-    const user = await response.json();
-    return user;
-  };
+  // const login = async (loginCredentials) => {
+  //   const response = await fetch("http://localhost:4000/api/user/login/", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(loginCredentials),
+  //   });
+  //   const user = await response.json();
+  //   return user;
+  // };
 
-  const { mutate: loginUser } = useMutation({
-    mutationFn: login,
-    onSuccess: (data) => {
-      setUser(data);
-      console.log(data);
-      console.log(user);
-    },
-    onError: (error) => console.log(error),
-  });
+  // const { mutate: loginUser } = useMutation({
+  //   mutationFn: login,
+  //   onSuccess: (data) => {
+  //     setUser(data);
+  //     console.log(data);
+  //     console.log(user);
+  //   },
+  //   onError: (error) => console.log(error),
+  // });
 
   const { refetch: getAllContacts } = useQuery({
     queryKey: ["contacts"],

@@ -9,7 +9,7 @@ export const AuthContext = createContext();
 const initialState = { user: null };
 
 const AuthContextProvider = ({ children }) => {
-  const [dispatch, state] = useReducer(authReducer, initialState);
+  const [state, dispatch] = useReducer(authReducer, initialState);
 
   useEffect(() => {
     //get user from local storage on app load

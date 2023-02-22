@@ -1,33 +1,38 @@
-import { useState } from "react";
+// import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useMutation } from "@tanstack/react-query";
+import { useSignup } from "../../hooks/useSignup";
+// import { useMutation } from "@tanstack/react-query";
 function Signup() {
-  const [user, setUser] = useState("");
+  const { createUser } = useSignup();
+  // const [user, setUser] = useState("");
 
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
     reset,
   } = useForm();
 
-  const signupUser = async (signupDetails) => {
-    const response = await fetch("/api/user/signup", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(signupDetails),
-    });
-    const user = response.json();
-    return user;
-  };
+  const [password, password2] = watch(["password", "password2"]);
 
-  const { mutate: createUser } = useMutation({
-    mutationFn: signupUser,
-    onSuccess: (data) => {
-      setUser(data);
-      console.log(user);
-    },
-  });
+  // const signupUser = async (signupDetails) => {
+  //   const response = await fetch("/api/user/signup", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(signupDetails),
+  //   });
+  //   const user = response.json();
+  //   return user;
+  // };
+
+  // const { mutate: createUser } = useMutation({
+  //   mutationFn: signupUser,
+  //   onSuccess: (data) => {
+  //     setUser(data);
+  //     console.log(user);
+  //   },
+  // });
 
   const onSubmit = (data) => {
     const signupDetails = { ...data };
@@ -67,6 +72,9 @@ function Signup() {
             type="password"
             placeholder="confirm password"
           />
+          {password2 !== "" && password !== password2 && (
+            <p>password do no match</p>
+          )}
         </div>
         <button type="submit">login</button>
       </form>
