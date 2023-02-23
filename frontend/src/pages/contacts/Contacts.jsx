@@ -1,6 +1,6 @@
 import { useGetContacts } from "../../hooks/useGetContacts";
 
-function Home() {
+function Contacts() {
   const { isLoading, isError, contacts, error } = useGetContacts();
 
   return (
@@ -15,4 +15,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default Contacts;
