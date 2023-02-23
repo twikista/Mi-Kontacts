@@ -11,5 +11,5 @@ export const useLogout = () => {
     dispatch(logout());
   };
 
-  return logoutUser;
+  return { logoutUser };
 };

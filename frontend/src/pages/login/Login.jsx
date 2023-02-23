@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useLogin } from "../../hooks/useLogin";
+import { useLogout } from "../../hooks/useLogout";
 import { useMutation, useQuery } from "@tanstack/react-query";
 function Login() {
   // const [user, setUser] = useState("");
   const [contacts, setContacts] = useState("");
   const { loginUser } = useLogin();
+  const { logoutUser } = useLogout();
   const {
     register,
     handleSubmit,
@@ -77,6 +79,9 @@ function Login() {
       </form>
       <button onClick={() => getAllContacts()} style={{ display: "block" }}>
         Get Contacts
+      </button>
+      <button onClick={() => logoutUser()} style={{ display: "block" }}>
+        log out
       </button>
     </>
   );

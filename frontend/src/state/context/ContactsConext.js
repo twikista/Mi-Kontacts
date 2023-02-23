@@ -8,7 +8,7 @@ export const ContactsContext = createContext();
 const initialState = [];
 
 const ContactsContextProvider = ({ children }) => {
-  const [dispatch, state] = useReducer(contactsReducer, initialState);
+  const [state, dispatch] = useReducer(contactsReducer, initialState);
   return (
     <ContactsContext.Provider value={{ state, dispatch }}>
       {children}
