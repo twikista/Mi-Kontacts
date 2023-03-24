@@ -6,7 +6,7 @@ function authReducer(state, action) {
     return { user: action.payload };
   }
 
-  //hnadle user logout
+  //handle user logout
   if (action.type === LOGOUT_USER) {
     return { user: null };
   }

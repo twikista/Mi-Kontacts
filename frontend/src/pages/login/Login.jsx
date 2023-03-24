@@ -3,11 +3,13 @@ import { useForm } from "react-hook-form";
 import { useLogin } from "../../hooks/useLogin";
 import { useLogout } from "../../hooks/useLogout";
 import { useMutation, useQuery } from "@tanstack/react-query";
+import { useAuthContext } from "../../hooks/useAuthContext";
 function Login() {
   // const [user, setUser] = useState("");
   const [contacts, setContacts] = useState("");
   const { loginUser } = useLogin();
   const { logoutUser } = useLogout();
+  const { user } = useAuthContext();
   const {
     register,
     handleSubmit,
@@ -51,7 +53,7 @@ function Login() {
     enabled: false,
     onSuccess: (data) => {
       setContacts(data);
-      console.log(contacts);
+      console.log(data);
     },
   });
 
