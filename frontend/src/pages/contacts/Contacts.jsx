@@ -7,7 +7,7 @@ function Contacts() {
   // if (user) {
   console.log(user);
   const { data: contacts, error } = useContacts();
-  // console.log(contacts);
+  console.log(contacts);
   // we = contacts;
 
   const userInitials = (firstName, lastName) => {
