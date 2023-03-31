@@ -3,7 +3,7 @@ import { useContactsContext } from "./useContactsContext";
 import { useAuthContext } from "./useAuthContext";
 
 export const useContacts = () => {
-  const { dispatch } = useContactsContext();
+  // const { dispatch } = useContactsContext();
   const { user } = useAuthContext();
   const userExist = user !== null;
   const getContacts = async () => {

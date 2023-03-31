@@ -5,6 +5,7 @@ import App from "./App";
 import GlobalStyles from "./theme/GlobalStyles";
 import AuthContextProvider from "./state/context/AuthContext";
 import ContactsContextProvider from "./state/context/ContactsConext";
+import ThemeProvider from "./state/context/ThemeContext";
 
 const queryClient = new QueryClient();
 
@@ -13,9 +14,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <QueryClientProvider client={queryClient}>
       <AuthContextProvider>
         <ContactsContextProvider>
-          <App />
+          <ThemeProvider>
+            <App />
+          </ThemeProvider>
         </ContactsContextProvider>
-        <GlobalStyles />
+        {/* <GlobalStyles /> */}
       </AuthContextProvider>
     </QueryClientProvider>
   </React.StrictMode>

@@ -1,8 +1,11 @@
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useContacts } from "../../hooks/useContacts";
+import { useTheme } from "../../hooks/useTheme";
+import "./contacts.scss";
 
 function Contacts() {
   const { user } = useAuthContext();
+  const { toggleTheme } = useTheme();
   // let we;
   // if (user) {
   console.log(user);
@@ -15,7 +18,9 @@ function Contacts() {
   };
 
   return (
-    <>
+    <div className="contacts">
+      <button onClick={toggleTheme}>toggle theme</button>
+      <h1>contacts</h1>
       {/* {isLoading && <p>loading...</p>} */}
       {/* {isError && <p>{error.message}</p>} */}
       {contacts &&
@@ -24,7 +29,7 @@ function Contacts() {
             {userInitials(contact.firstName, contact.lastName)}
           </p>
         ))}
-    </>
+    </div>
   );
 }
 
