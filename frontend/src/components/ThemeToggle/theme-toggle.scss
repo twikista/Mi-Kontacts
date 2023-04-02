@@ -1,0 +1,19 @@
+.theme-toggler {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border: solid 2px var(--background-color);
+
+  &:hover {
+    border-radius: 5px;
+    border: solid 2px var(--text-color);
+  }
+  &__icon {
+    color: var(--text-color);
+    font-size: 32px;
+    &:hover {
+      color: var(--text-color);
+    }
+  }
+}

@@ -1,2 +1,10 @@
-@forward '../src/styles/resets';
-@forward './styles/variables/'
+@forward "../src/styles/resets";
+@forward "./styles/variables/";
+@forward "./styles/theme/";
+
+.App {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  text-transform: uppercase;
+  transition: all ease-in 0.2s;
+}

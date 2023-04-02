@@ -1,5 +1,8 @@
-.contacts{
-    background-color: var(--background-color);
-    color: var(--text-color);
-    text-transform: uppercase;
+@forward "../../styles/variables/";
+.contacts {
+  // background-color: var(--background-color);
+  // color: var(--text-color);
+  // text-transform: uppercase;
+  // transition: all ease-in 0.2s;
+  // background-color: var(--primary-colo);
 }
