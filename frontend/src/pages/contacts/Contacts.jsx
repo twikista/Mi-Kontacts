@@ -3,6 +3,8 @@ import { useContacts } from "../../hooks/useContacts";
 import { useTheme } from "../../hooks/useTheme";
 import ThemeToggle from "../../components/ThemeToggle/ThemeToggle";
 import "./contacts.scss";
+import Button from "../../components/Button/Button";
+import Logo from "../../components/Logo/Logo";
 
 function Contacts() {
   const { user } = useAuthContext();
@@ -20,7 +22,9 @@ function Contacts() {
 
   return (
     <div className="contacts">
+      <Logo />
       <ThemeToggle />
+      <Button variant="outlined">{user ? "logout" : "login"}</Button>
       <h1>contacts</h1>
       {/* {isLoading && <p>loading...</p>} */}
       {/* {isError && <p>{error.message}</p>} */}

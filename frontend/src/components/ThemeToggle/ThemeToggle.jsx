@@ -15,9 +15,11 @@ function ThemeToggle() {
     );
 
   return (
-    <button className="theme-toggler" onClick={toggleTheme}>
-      {toggleIcon}
-    </button>
+    <>
+      <button className="theme-toggler" onClick={toggleTheme}>
+        {toggleIcon}
+      </button>
+    </>
   );
 }
 

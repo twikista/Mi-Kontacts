@@ -1,13 +1,13 @@
+@use "../../styles/mixins/" as layout;
+@use "../../styles/variables/" as util;
 .theme-toggler {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include layout.display-flex;
   padding: 2px;
-  border: solid 2px var(--background-color);
+  border: util.$border-style-solid util.$border-width-md var(--background-color);
 
   &:hover {
     border-radius: 5px;
-    border: solid 2px var(--text-color);
+    border: util.$border-style-solid util.$border-width-md var(--text-color);
   }
   &__icon {
     color: var(--text-color);
@@ -17,3 +17,6 @@
     }
   }
 }
+// ul {
+//   @include layout.flex-container($j-content: space-between);
+// }

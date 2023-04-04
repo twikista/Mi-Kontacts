@@ -1,0 +1,9 @@
+@use "../../styles/mixins/" as layout;
+
+.button {
+  @include layout.display-flex;
+  background-color: var(--background-color);
+  &--outlined {
+    border: solid 1px green;
+  }
+}
