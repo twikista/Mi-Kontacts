@@ -1,7 +1,7 @@
 import React from "react";
 import "./button.scss";
 
-function Button({ children, variant }) {
+function Button({ children, variant, color }) {
   const variantClass = (variant) => {
     let currentClass;
     switch (variant) {
@@ -16,7 +16,7 @@ function Button({ children, variant }) {
   };
   return (
     <button
-      style={{ color: "var(--text-color)" }}
+      style={{ color: color || null }}
       className={`button ${variantClass(variant)}`}
     >
       {children}

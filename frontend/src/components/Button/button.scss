@@ -1,9 +1,15 @@
 @use "../../styles/mixins/" as layout;
+@use "../../styles/variables/" as util;
 
 .button {
   @include layout.display-flex;
+  // color: var(--text-color);
+  font-weight: 600;
+  color: inherit;
   background-color: var(--background-color);
+  border-radius: inherit;
+  padding: 8px 12px;
   &--outlined {
-    border: solid 1px green;
+    border: util.$border-style-solid util.$border-width-md var(--text-color);
   }
 }
