@@ -1,0 +1,21 @@
+@use "../../styles/mixins/" as layout;
+@use "../../styles/variables/" as util;
+
+.search-box {
+  padding-inline: 8px;
+  @include layout.display-flex($j-content: space-around);
+  gap: 8px;
+  width: 500px;
+  border: solid 2px rgb(158, 158, 158);
+  border-radius: util.$border-radius-xl;
+  // justify-content: space-around;
+  &__icon {
+    display: inline-block;
+    flex: 1;
+    border: solid 2px;
+    width: 20px;
+  }
+  &__input {
+    flex: 4;
+  }
+}

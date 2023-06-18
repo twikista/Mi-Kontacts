@@ -1,10 +1,7 @@
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useContacts } from "../../hooks/useContacts";
 import { useTheme } from "../../hooks/useTheme";
-import ThemeToggle from "../../components/ThemeToggle/ThemeToggle";
 import "./contacts.scss";
-import Button from "../../components/Button/Button";
-import Logo from "../../components/Logo/Logo";
 import DashboardHeader from "../../components/DashboardHeader/DashboardHeader";
 
 function Contacts() {
